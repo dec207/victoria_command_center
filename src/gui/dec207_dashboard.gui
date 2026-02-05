@@ -1,83 +1,122 @@
-﻿﻿# VCC Dashboard Window Only
+﻿# VCC Dashboard UI (Reference: Advanced Cheat Menu)
 # Prefix: dec207_
 
-types dec207_ui_types {
-	type dec207_dashboard_window = default_block_window {
-		name = "dec207_dashboard_window"
-		size = { 400 600 } # Fixed size to prevent "title bar only" issue
-		
-		blockoverride "window_header_name" {
-			raw_text = "Victoria Command Center (VCC)"
-		}
-
-		blockoverride "scrollarea_content" {
-			flowcontainer = {
-				direction = vertical
-				spacing = 15
-				margin = { 20 20 }
-
-				# Economy Section
-				textbox = {
-					raw_text = "#h 경제 조작#!"
-					using = fontsize_large
-					autoresize = yes
-				}
-				
-				button = {
-					using = default_button
-					size = { 300 50 }
-					raw_text = "자금 100만 파운드 추가"
-					onclick = "[GetScriptedGui('dec207_add_gold_1M_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				}
-
-				divider_clean = { size = { 300 2 } }
-
-				# Population Section
-				textbox = {
-					raw_text = "#h 인구 조작#!"
-					using = fontsize_large
-					autoresize = yes
-				}
-
-				button = {
-					using = default_button
-					size = { 300 50 }
-					raw_text = "수도 인구 10만 명 추가"
-					onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				}
-
-				divider_clean = { size = { 300 2 } }
-
-				# National Section
-				textbox = {
-					raw_text = "#h 국가 조작#!"
-					using = fontsize_large
-					autoresize = yes
-				}
-
-				button = {
-					using = default_button
-					size = { 300 50 }
-					raw_text = "악명(Infamy) 0으로 초기화"
-					onclick = "[GetScriptedGui('dec207_reset_infamy_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-				}
-			}
-		}
-	}
-}
-
-# Dashboard Widget
-widget = {
-	name = "dec207_dashboard_widget"
-	layer = top
-	size = { 100% 100% }
+window = {
+	name = "dec207_dashboard_window"
+	parentanchor = center
+	size = { 450 650 }
+	layer = windows_layer
+	filter_mouse = all
+	allow_outside = yes
+	alwaystransparent = no
+	movable = yes
 	visible = "[GetVariableSystem.Exists('dec207_dashboard_visible')]"
 
-	dec207_dashboard_window = {
-		parentanchor = center
-		
-		blockoverride "header_close_button" {
-			onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+	using = Window_Background
+	using = Window_Decoration
+
+	state = {
+		name = _show
+		using = Animation_FadeIn_Quick
+	}
+	
+	state = {
+		name = _hide
+		using = Animation_FadeOut_Quick
+	}
+
+	vbox = {
+		using = Window_Margins
+		restrictparent_min = yes
+
+		header_standard = {
+			layoutpolicy_horizontal = expanding
+			
+			blockoverride "header_text" {
+				raw_text = "Victoria Command Center (VCC)"
+			}
+			
+			blockoverride "header_close_button" {
+				onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+			}
+		}
+
+		scrollarea = {
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+
+			blockoverride "scrollarea_content" {
+				vbox = {
+					spacing = 15
+					margin = { 20 20 }
+
+					# Economy Section
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 5
+						
+						textbox = {
+							layoutpolicy_horizontal = expanding
+							raw_text = "#h 경제 조작#!"
+							using = fontsize_large
+							align = left|nobaseline
+						}
+						
+						button = {
+							using = default_button
+							size = { 350 50 }
+							raw_text = "자금 100만 파운드 추가"
+							onclick = "[GetScriptedGui('dec207_add_gold_1M_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
+
+					divider_clean = { layoutpolicy_horizontal = expanding }
+
+					# Population Section
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 5
+
+						textbox = {
+							layoutpolicy_horizontal = expanding
+							raw_text = "#h 인구 조작#!"
+							using = fontsize_large
+							align = left|nobaseline
+						}
+
+						button = {
+							using = default_button
+							size = { 350 50 }
+							raw_text = "수도 인구 10만 명 추가"
+							onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
+
+					divider_clean = { layoutpolicy_horizontal = expanding }
+
+					# National Section
+					vbox = {
+						layoutpolicy_horizontal = expanding
+						spacing = 5
+
+						textbox = {
+							layoutpolicy_horizontal = expanding
+							raw_text = "#h 국가 조작#!"
+							using = fontsize_large
+							align = left|nobaseline
+						}
+
+						button = {
+							using = default_button
+							size = { 350 50 }
+							raw_text = "악명(Infamy) 0으로 초기화"
+							onclick = "[GetScriptedGui('dec207_reset_infamy_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+						}
+					}
+					
+					expand = {} # Fill remaining space
+				}
+			}
 		}
 	}
 }
