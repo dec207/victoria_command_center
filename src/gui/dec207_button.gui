@@ -6,9 +6,9 @@
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 
 	sidepanel_button_small = {
-		name = "dec207_main_toggle"
+		name = "dec207_main_button" # Restore Original Name
 		parentanchor = bottom|left
-		position = { 5 -165 }
+		position = { 0 -165 } # Restore Original Position
 		size = { 42 40 }
 		alpha = 0.8
 
@@ -16,7 +16,7 @@
 		tooltip = "VCC 커맨드 센터 열기"
 
 		blockoverride "icon" {
-			texture = "gfx/interface/icons/generic_icons/cheats.dds"
+			texture = "gfx/interface/icons/generic_icons/money.dds" # Restore Original Icon
 		}
 		
 		blockoverride "icon_size" {
