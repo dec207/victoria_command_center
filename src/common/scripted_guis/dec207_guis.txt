@@ -1,0 +1,17 @@
+﻿dec207_add_gold_1M_gui = {
+	scope = country
+	effect = {
+		add_treasury = 1000000
+	}
+}
+dec207_add_pop_100k_gui = {
+	scope = country
+	effect = {
+		capital_scope = {
+			create_pop = {
+				culture = owner.primary_culture
+				size = 100000
+			}
+		}
+	}
+}

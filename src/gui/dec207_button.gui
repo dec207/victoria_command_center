@@ -1,0 +1,36 @@
+﻿widget = {
+	name = "dec207_button"
+	layer = top
+	size = { 100% 100% }
+	using = Animation_ShowHide_Quick
+	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
+
+	flowcontainer = {
+		parentanchor = bottom|left
+		position = { 5 -165 }
+		direction = vertical
+		spacing = 5
+
+		# Gold Button
+		sidepanel_button_small = {
+			name = "dec207_gold_button"
+			size = { 42 40 }
+			alpha = 0.8
+			onclick = "[GetScriptedGui('dec207_add_gold_1M_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			tooltip = "자금 100만 파운드 추가"
+			blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/money.dds" }
+			blockoverride "icon_size" { size = { 25 25 } }
+		}
+
+		# Pop Button
+		sidepanel_button_small = {
+			name = "dec207_pop_button"
+			size = { 42 40 }
+			alpha = 0.8
+			onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+			tooltip = "수도 인구 10만 명 추가"
+			blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/population.dds" }
+			blockoverride "icon_size" { size = { 25 25 } }
+		}
+	}
+}

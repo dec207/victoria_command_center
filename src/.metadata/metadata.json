@@ -1,0 +1,10 @@
+{
+  "name" : "vcc",
+  "id" : "",
+  "version" : "1.0",
+  "supported_game_version" : "1.12.*",
+  "short_description" : "Victoria Command Center",
+  "tags" : ["Utilities"],
+  "relationships" : [],
+  "game_custom_data" : { "multiplayer_synchronized" : false }
+}
