@@ -1,4 +1,4 @@
-﻿# VCC Dashboard UI (Reference: Advanced Cheat Menu)
+﻿# VCC Dashboard UI (Direct Reference: Advanced Cheat Menu)
 # Prefix: dec207_
 
 window = {
@@ -14,6 +14,14 @@ window = {
 
 	using = Window_Background
 	using = Window_Decoration
+
+	# Critical Connection to Engine Systems
+	datacontext = "[GetVariableSystem]"
+	datacontext = "[GetPlayer]"
+
+	# Mouse Input Isolation
+	onmousehierarchyenter = "[SetCanOpenRightClickContextMenu( '(bool)no' )]"
+	onmousehierarchyleave = "[SetCanOpenRightClickContextMenu( '(bool)yes' )]"
 
 	state = {
 		name = _show
@@ -47,6 +55,8 @@ window = {
 
 			blockoverride "scrollarea_content" {
 				vbox = {
+					layoutpolicy_horizontal = expanding
+					layoutpolicy_vertical = expanding
 					spacing = 15
 					margin = { 20 20 }
 
@@ -114,7 +124,7 @@ window = {
 						}
 					}
 					
-					expand = {} # Fill remaining space
+					expand = {}
 				}
 			}
 		}
