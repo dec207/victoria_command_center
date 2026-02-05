@@ -1,13 +1,6 @@
 ﻿# VCC Dashboard Scripted GUI
 # Prefix: dec207_
 
-dec207_open_dashboard_gui = {
-	scope = country
-	effect = {
-		# This can be used to trigger variables or events if needed
-	}
-}
-
 dec207_add_gold_1M_gui = {
 	scope = country
 	effect = {
