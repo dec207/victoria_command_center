@@ -1,0 +1,43 @@
+﻿right_click_menu = {
+	name = "state_right_click_menu"
+	datacontext = "[State.AccessOwner]"
+
+	blockoverride "title_text" {
+		text = "STATE_RIGHT_CLICK_MENU_TITLE"
+	}
+
+	blockoverride "items" {
+		# VCC Item Injected at the top
+		right_click_menu_item = {
+			blockoverride "properties" {
+				onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(State.MakeScope).End)]"
+				onclick = "[RightClickMenuManager.Close]"
+			}
+			blockoverride "texture" {
+				texture = "gfx/interface/icons/generic_icons/population.dds"
+			}
+			blockoverride "text" {
+				raw_text = "인구 10만 명 추가 (VCC)"
+			}
+		}
+
+		# Original Content (Mandatory to keep the menu functional)
+		container = {
+			minimumsize = { 460 -1 }
+			flowcontainer = {
+				parentanchor = vcenter
+				spacing = 5
+				margin_left = 10
+				tiny_flag = { parentanchor = vcenter }
+				textbox = {
+					parentanchor = vcenter
+					autoresize = yes
+					align = nobaseline
+					text = "STATE_RIGHT_CLICK_MENU_COUNTRY_TITLE"
+				}
+			}
+		}
+		
+		country_right_click_menu_items = {}
+	}
+}
