@@ -1,4 +1,4 @@
-﻿# VCC Dashboard UI (Direct Reference: Advanced Cheat Menu)
+﻿# VCC Dashboard UI (Fixed Layout & Reference: Advanced Cheat Menu)
 # Prefix: dec207_
 
 window = {
@@ -50,27 +50,29 @@ window = {
 			}
 		}
 
-		scrollarea = {
+		# Use scrollbox instead of scrollarea for better visibility and layout
+		scrollbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
 
-			blockoverride "scrollarea_content" {
+			blockoverride "scrollbox_content" {
 				vbox = {
 					layoutpolicy_horizontal = expanding
 					layoutpolicy_vertical = expanding
-					spacing = 15
-					margin = { 20 20 }
+					spacing = 20
+					margin = { 10 10 }
 
 					# Economy Section
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 5
+						spacing = 10
 						
 						textbox = {
 							layoutpolicy_horizontal = expanding
 							raw_text = "#h 경제 조작#!"
 							using = fontsize_large
 							align = left|nobaseline
+							autoresize = yes
 						}
 						
 						button = {
@@ -86,13 +88,14 @@ window = {
 					# Population Section
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 5
+						spacing = 10
 
 						textbox = {
 							layoutpolicy_horizontal = expanding
 							raw_text = "#h 인구 조작#!"
 							using = fontsize_large
 							align = left|nobaseline
+							autoresize = yes
 						}
 
 						button = {
@@ -108,13 +111,14 @@ window = {
 					# National Section
 					vbox = {
 						layoutpolicy_horizontal = expanding
-						spacing = 5
+						spacing = 10
 
 						textbox = {
 							layoutpolicy_horizontal = expanding
 							raw_text = "#h 국가 조작#!"
 							using = fontsize_large
 							align = left|nobaseline
+							autoresize = yes
 						}
 
 						button = {
