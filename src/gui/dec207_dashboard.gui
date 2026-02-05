@@ -1,0 +1,100 @@
+﻿# VCC Dashboard UI
+# Prefix: dec207_
+
+types dec207_dashboard_types {
+	type dec207_dashboard_window = default_block_window {
+		name = "dec207_dashboard_window"
+		
+		blockoverride "window_header_name" {
+			raw_text = "Victoria Command Center (VCC)"
+		}
+
+		blockoverride "scrollarea_content" {
+			flowcontainer = {
+				direction = vertical
+				spacing = 15
+				margin = { 20 20 }
+
+				# Economy Section
+				textbox = {
+					raw_text = "#h 경제 조작#!"
+					using = fontsize_large
+					autoresize = yes
+				}
+				
+				button = {
+					using = default_button
+					size = { 300 50 }
+					raw_text = "자금 100만 파운드 추가"
+					onclick = "[GetScriptedGui('dec207_add_gold_1M_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				}
+
+				divider_clean = { size = { 300 2 } }
+
+				# Population Section
+				textbox = {
+					raw_text = "#h 인구 조작#!"
+					using = fontsize_large
+					autoresize = yes
+				}
+
+				button = {
+					using = default_button
+					size = { 300 50 }
+					raw_text = "수도 인구 10만 명 추가"
+					onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				}
+
+				divider_clean = { size = { 300 2 } }
+
+				# National Section
+				textbox = {
+					raw_text = "#h 국가 조작#!"
+					using = fontsize_large
+					autoresize = yes
+				}
+
+				button = {
+					using = default_button
+					size = { 300 50 }
+					raw_text = "악명(Infamy) 0으로 초기화"
+					onclick = "[GetScriptedGui('dec207_reset_infamy_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
+				}
+			}
+		}
+	}
+}
+
+# Sidebar Button to Toggle Dashboard
+widget = {
+	name = "dec207_button"
+	layer = top
+	size = { 50 50 }
+	
+	sidepanel_button_small = {
+		name = "dec207_main_toggle"
+		parentanchor = bottom|left
+		position = { 5 -165 }
+		size = { 45 45 }
+		alpha = 0.9
+
+		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+		tooltip = "VCC 커맨드 센터 열기"
+
+		blockoverride "icon" {
+			texture = "gfx/interface/icons/main_hud/vcc_icon.dds" # Placeholder icon
+			# Fallback to a vanilla icon if ours isn't ready
+			texture = "gfx/interface/icons/generic_icons/cheats.dds"
+		}
+	}
+}
+
+# The Dashboard itself, controlled by the variable
+dec207_dashboard_window = {
+	visible = "[GetVariableSystem.Exists('dec207_dashboard_visible')]"
+	parentanchor = center
+	
+	blockoverride "header_close_button" {
+		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+	}
+}

@@ -1,9 +1,20 @@
-﻿dec207_add_gold_1M_gui = {
+﻿# VCC Dashboard Scripted GUI
+# Prefix: dec207_
+
+dec207_open_dashboard_gui = {
+	scope = country
+	effect = {
+		# This can be used to trigger variables or events if needed
+	}
+}
+
+dec207_add_gold_1M_gui = {
 	scope = country
 	effect = {
 		add_treasury = 1000000
 	}
 }
+
 dec207_add_pop_100k_gui = {
 	scope = country
 	effect = {
@@ -13,5 +24,12 @@ dec207_add_pop_100k_gui = {
 				size = 100000
 			}
 		}
+	}
+}
+
+dec207_reset_infamy_gui = {
+	scope = country
+	effect = {
+		set_infamy = 0
 	}
 }
