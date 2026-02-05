@@ -1,7 +1,7 @@
 ﻿widget = {
 	name = "dec207_button"
 	layer = top
-	size = { 100% 100% } # Change to full screen container
+	size = { 100% 100% }
 	using = Animation_ShowHide_Quick
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 

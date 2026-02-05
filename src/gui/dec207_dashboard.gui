@@ -1,7 +1,7 @@
-﻿﻿# VCC Dashboard UI
+﻿# VCC Dashboard Window Only
 # Prefix: dec207_
 
-types dec207_dashboard_types {
+types dec207_ui_types {
 	type dec207_dashboard_window = default_block_window {
 		name = "dec207_dashboard_window"
 		
@@ -65,12 +65,18 @@ types dec207_dashboard_types {
 	}
 }
 
-# The Dashboard itself, controlled by the variable
-dec207_dashboard_window = {
+# Dashboard Widget
+widget = {
+	name = "dec207_dashboard_widget"
+	layer = top
+	size = { 100% 100% }
 	visible = "[GetVariableSystem.Exists('dec207_dashboard_visible')]"
-	parentanchor = center
-	
-	blockoverride "header_close_button" {
-		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+
+	dec207_dashboard_window = {
+		parentanchor = center
+		
+		blockoverride "header_close_button" {
+			onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+		}
 	}
 }
