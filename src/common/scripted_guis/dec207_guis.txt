@@ -23,6 +23,8 @@ dec207_add_pop_100k_gui = {
 dec207_reset_infamy_gui = {
 	scope = country
 	effect = {
-		set_infamy = 0
+		# In Victoria 3, 'set_infamy' is not a standard effect.
+		# We must use 'change_infamy' with a negative value equal to current infamy.
+		change_infamy = -1000
 	}
 }
