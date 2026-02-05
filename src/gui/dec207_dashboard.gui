@@ -1,9 +1,10 @@
-﻿# VCC Dashboard Window Only
+﻿﻿# VCC Dashboard Window Only
 # Prefix: dec207_
 
 types dec207_ui_types {
 	type dec207_dashboard_window = default_block_window {
 		name = "dec207_dashboard_window"
+		size = { 400 600 } # Fixed size to prevent "title bar only" issue
 		
 		blockoverride "window_header_name" {
 			raw_text = "Victoria Command Center (VCC)"
