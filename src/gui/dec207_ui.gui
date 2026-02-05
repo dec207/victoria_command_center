@@ -90,13 +90,15 @@ widget = {
 		}
 	}
 
-	# DASHBOARD WINDOW (Integrated)
-	dec207_dashboard_window = {
+	# DASHBOARD WINDOW
+	container = {
 		visible = "[GetVariableSystem.Exists('dec207_dashboard_visible')]"
 		parentanchor = center
 		
-		blockoverride "header_close_button" {
-			onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+		dec207_dashboard_window = {
+			blockoverride "header_close_button" {
+				onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+			}
 		}
 	}
 }
