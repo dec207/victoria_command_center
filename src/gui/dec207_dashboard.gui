@@ -35,7 +35,7 @@ window = {
 
 	vbox = {
 		using = Window_Margins
-		restrictparent_min = yes
+		# Removed restrictparent_min to allow fixed size to dictate layout
 
 		header_standard = {
 			layoutpolicy_horizontal = expanding
@@ -44,7 +44,8 @@ window = {
 				raw_text = "Victoria Command Center (VCC)"
 			}
 			
-			blockoverride "header_close_button" {
+			# Corrected block name for close button in standard header
+			blockoverride "button_close" {
 				onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
 			}
 		}
