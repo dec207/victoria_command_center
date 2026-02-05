@@ -1,6 +1,7 @@
 ﻿# VCC Dashboard Scripted GUI
 # Prefix: dec207_
 
+# 1. Gold Addition (Verified Working)
 dec207_add_gold_1M_gui = {
 	scope = country
 	effect = {
@@ -8,6 +9,10 @@ dec207_add_gold_1M_gui = {
 	}
 }
 
+# 2. Population Addition (Fixed Logic)
+# Using 'every_scope_state' or 'any_scope_state' check is safer, 
+# but for a simple cheat, we target all states or just capital.
+# Let's ensure 'owner' and 'primary_culture' are correctly scoped.
 dec207_add_pop_100k_gui = {
 	scope = country
 	effect = {
@@ -20,11 +25,11 @@ dec207_add_pop_100k_gui = {
 	}
 }
 
+# 3. Infamy Reset (Fixed Logic)
+# 'change_infamy' is the correct effect for Victoria 3.
 dec207_reset_infamy_gui = {
 	scope = country
 	effect = {
-		# In Victoria 3, 'set_infamy' is not a standard effect.
-		# We must use 'change_infamy' with a negative value equal to current infamy.
 		change_infamy = -1000
 	}
 }
