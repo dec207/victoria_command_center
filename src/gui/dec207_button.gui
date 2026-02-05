@@ -1,36 +1,26 @@
 ﻿widget = {
 	name = "dec207_button"
 	layer = top
-	size = { 100% 100% }
+	size = { 100% 100% } # Change to full screen container
 	using = Animation_ShowHide_Quick
 	visible = "[GetMetaPlayer.GetPlayedOrObservedCountry.IsValid]"
 
-	flowcontainer = {
+	sidepanel_button_small = {
+		name = "dec207_main_toggle"
 		parentanchor = bottom|left
 		position = { 5 -165 }
-		direction = vertical
-		spacing = 5
+		size = { 42 40 }
+		alpha = 0.8
 
-		# Gold Button
-		sidepanel_button_small = {
-			name = "dec207_gold_button"
-			size = { 42 40 }
-			alpha = 0.8
-			onclick = "[GetScriptedGui('dec207_add_gold_1M_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			tooltip = "자금 100만 파운드 추가"
-			blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/money.dds" }
-			blockoverride "icon_size" { size = { 25 25 } }
+		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
+		tooltip = "VCC 커맨드 센터 열기"
+
+		blockoverride "icon" {
+			texture = "gfx/interface/icons/generic_icons/cheats.dds"
 		}
-
-		# Pop Button
-		sidepanel_button_small = {
-			name = "dec207_pop_button"
-			size = { 42 40 }
-			alpha = 0.8
-			onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
-			tooltip = "수도 인구 10만 명 추가"
-			blockoverride "icon" { texture = "gfx/interface/icons/generic_icons/population.dds" }
-			blockoverride "icon_size" { size = { 25 25 } }
+		
+		blockoverride "icon_size" {
+			size = { 25 25 }
 		}
 	}
 }

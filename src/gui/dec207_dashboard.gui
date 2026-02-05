@@ -1,4 +1,4 @@
-﻿# VCC Dashboard UI
+﻿﻿# VCC Dashboard UI
 # Prefix: dec207_
 
 types dec207_dashboard_types {
@@ -61,30 +61,6 @@ types dec207_dashboard_types {
 					onclick = "[GetScriptedGui('dec207_reset_infamy_gui').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 				}
 			}
-		}
-	}
-}
-
-# Sidebar Button to Toggle Dashboard
-widget = {
-	name = "dec207_button"
-	layer = top
-	size = { 50 50 }
-	
-	sidepanel_button_small = {
-		name = "dec207_main_toggle"
-		parentanchor = bottom|left
-		position = { 5 -165 }
-		size = { 45 45 }
-		alpha = 0.9
-
-		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
-		tooltip = "VCC 커맨드 센터 열기"
-
-		blockoverride "icon" {
-			texture = "gfx/interface/icons/main_hud/vcc_icon.dds" # Placeholder icon
-			# Fallback to a vanilla icon if ours isn't ready
-			texture = "gfx/interface/icons/generic_icons/cheats.dds"
 		}
 	}
 }
