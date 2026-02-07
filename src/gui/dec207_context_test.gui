@@ -10,7 +10,7 @@
 		# VCC Item Injected at the top
 		right_click_menu_item = {
 			blockoverride "properties" {
-				onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(State.MakeScope).End)]"
+				onclick = "[GetScriptedGui('dec207_add_pop_100k_gui').Execute(GuiScope.SetRoot(State.AccessOwner.MakeScope).End)]"
 				onclick = "[RightClickMenuManager.Close]"
 			}
 			blockoverride "texture" {
