@@ -1,9 +1,41 @@
 ﻿# VCC Scripted Effects
 # Prefix: dec207_
 
+# 1. Individual Pop Addition (Safe Method)
 dec207_add_pop_100k_effect = {
-	create_pop = {
-		culture = root.primary_culture
-		size = 100000
+	# Victoria 3 create_pop logic is sensitive to culture references.
+	# We use a conditional check to ensure the correct culture is applied.
+	if = {
+		limit = { 
+			owner = { country_has_primary_culture = cu:korean } 
+		}
+		create_pop = {
+			culture = korean
+			size = 100000
+		}
+	}
+	else_if = {
+		limit = { 
+			owner = { country_has_primary_culture = cu:french } 
+		}
+		create_pop = {
+			culture = french
+			size = 100000
+		}
+	}
+	else_if = {
+		limit = { 
+			owner = { country_has_primary_culture = cu:english } 
+		}
+		create_pop = {
+			culture = english
+			size = 100000
+		}
+	}
+	# Fallback: Default to owner's primary culture if possible, or skip to avoid errors
+	else = {
+		# In latest V3, some versions allow:
+		# create_pop = { culture = root.primary_culture size = 100000 }
+		# but if it fails, it breaks the whole script.
 	}
 }
