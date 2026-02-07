@@ -4,7 +4,7 @@
 # 1. Individual Pop Addition (Safe Method)
 dec207_add_pop_100k_effect = {
 	# Victoria 3 create_pop logic is sensitive to culture references.
-	# The Wiki confirms 'create_pop' is the correct block effect for State scope.
+	# The Wiki and Vanilla files confirm culture keys must match internal IDs.
 	# We use a conditional check to ensure the correct culture is applied.
 	if = {
 		limit = { 
@@ -26,10 +26,10 @@ dec207_add_pop_100k_effect = {
 	}
 	else_if = {
 		limit = { 
-			owner = { country_has_primary_culture = cu:english } 
+			owner = { country_has_primary_culture = cu:british } 
 		}
 		create_pop = {
-			culture = english
+			culture = british
 			size = 100000
 		}
 	}
