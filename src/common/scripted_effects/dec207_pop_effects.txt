@@ -1,0 +1,9 @@
+﻿# VCC Scripted Effects
+# Prefix: dec207_
+
+dec207_add_pop_100k_effect = {
+	create_pop = {
+		culture = root.primary_culture
+		size = 100000
+	}
+}

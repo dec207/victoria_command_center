@@ -9,18 +9,12 @@ dec207_add_gold_1M_gui = {
 	}
 }
 
-# 2. Population Addition (Fixed Logic)
-# Using 'every_scope_state' or 'any_scope_state' check is safer, 
-# but for a simple cheat, we target all states or just capital.
-# Let's ensure 'owner' and 'primary_culture' are correctly scoped.
+# 2. Population Addition (Fixed Logic via Effect)
 dec207_add_pop_100k_gui = {
 	scope = country
 	effect = {
 		capital_scope = {
-			create_pop = {
-				culture = root.primary_culture
-				size = 100000
-			}
+			dec207_add_pop_100k_effect = yes
 		}
 	}
 }
