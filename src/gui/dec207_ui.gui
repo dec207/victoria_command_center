@@ -1,4 +1,4 @@
-﻿# VCC Integrated UI
+﻿﻿# VCC Integrated UI
 # Prefix: dec207_
 
 types dec207_ui_types {
@@ -17,7 +17,7 @@ types dec207_ui_types {
 
 				# Economy Section
 				textbox = {
-					raw_text = "#h 경제 조작#!"
+					raw_text = "경제 조작"
 					using = fontsize_large
 					autoresize = yes
 				}
@@ -33,7 +33,7 @@ types dec207_ui_types {
 
 				# Population Section
 				textbox = {
-					raw_text = "#h 인구 조작#!"
+					raw_text = "인구 조작"
 					using = fontsize_large
 					autoresize = yes
 				}
@@ -49,7 +49,7 @@ types dec207_ui_types {
 
 				# National Section
 				textbox = {
-					raw_text = "#h 국가 조작#!"
+					raw_text = "국가 조작"
 					using = fontsize_large
 					autoresize = yes
 				}
@@ -79,7 +79,7 @@ widget = {
 		alpha = 0.8
 
 		onclick = "[GetVariableSystem.Toggle('dec207_dashboard_visible')]"
-		tooltip = "VCC 커맨드 센터 열기"
+		raw_tooltip = "VCC 커맨드 센터 열기"
 
 		blockoverride "icon" {
 			texture = "gfx/interface/icons/generic_icons/cheats.dds"
