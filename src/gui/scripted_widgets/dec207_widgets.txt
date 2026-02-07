@@ -1,2 +1,1 @@
-﻿gui/dec207_button.gui = dec207_button
-gui/dec207_dashboard.gui = dec207_dashboard_window
+gui/dec207_ui.gui = dec207_main_widget
